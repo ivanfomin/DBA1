@@ -66,4 +66,11 @@ WHERE b.name LIKE  'A%';
 SELECT categories.name,
 (SELECT COUNT( * )FROM products
 WHERE categories.id = products.categor_id) AS AMOUNT
-FROM categories ORDER BY categories.name
+FROM categories ORDER BY categories.name;
+
+#-----------------------------------------------
+#*
+
+SELECT DISTINCT c.name, b.name
+FROM categories c INNER JOIN brands b INNER JOIN products p
+ON c.id=p.categor_id AND b.id=p.brand_id;
