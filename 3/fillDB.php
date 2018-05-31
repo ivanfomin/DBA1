@@ -1,18 +1,16 @@
 <?php
 
+$dbname = 'postgres';
 $host = '127.0.0.1';
-$db = 'testDB';
-$user = 'root';
-$pass = '321';
-$charset = 'utf8';
+$dbuser = 'postgres';
+$dbpass = '321';
 
-$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+$dbh = new PDO("pgsql:dbname=$dbname;host=$host", $dbuser, $dbpass);
 
-$dbh = new PDO($dsn, $user, $pass);
 
 $table = 'products';
 
-for ($i = 0; $i < 1000; ++$i) {
+for ($i = 0; $i < 10; ++$i) {
     if ($i % 2 == 0) {
         $vendor = 'Test' . $i;
     } else {
@@ -31,10 +29,26 @@ for ($i = 0; $i < 1000; ++$i) {
 
     $count = mt_rand(0, 100);
 
+    $categor_id = mt_rand(1,3);
+
+    $brand_id = mt_rand(1,4);
+
+    try {
     $sth = $dbh->prepare(' INSERT INTO ' . $table . ' 
-    VALUES (NULL,  :title, :vendor, :img, :price, :oldPrice,  :bringing, :counts)');
-
-    $sth->execute([':title' => $title, ':vendor' => $vendor, ':img' => $img, ':price' => $price, ':oldPrice' => $oldPrice,
-        ':bringing' => $bringing, ':counts' => $count]);
-
+    VALUES (:id,  :title, :vendor, :img, :price, :oldprice,  :bringing, :counts, :categor_id, :brand_id)');
+        $sth->bindValue(':id', $i);
+    $sth->bindValue(':title', $title);
+    $sth->bindValue(':vendor', $vendor);
+    $sth->bindValue(':img', $img);
+        $sth->bindValue(':price', $price);
+        $sth->bindValue(':oldprice', $oldPrice);
+        $sth->bindValue(':bringing', $bringing);
+        $sth->bindValue(':counts', $count);
+        $sth->bindValue(':categor_id', $categor_id);
+        $sth->bindValue(':brand_id', $brand_id);
+    $sth->execute();
+    //echo $dbh->lastInsertId();
+} catch (PDOException $exception) {
+    $exception->getMessage();
+}
 }

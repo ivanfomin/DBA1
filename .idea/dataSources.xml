@@ -15,12 +15,6 @@
         <property name="yearIsDateType" value="false" />
       </driver-properties>
     </data-source>
-    <data-source source="LOCAL" name="postgres@localhost" uuid="b9fdfa59-01f7-4dbf-b765-a0177a32f582">
-      <driver-ref>postgresql</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://localhost:5432/postgres</jdbc-url>
-    </data-source>
     <data-source source="LOCAL" name="test.sqkite" uuid="93fa98f7-6777-4039-b198-5857eac5f835">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
@@ -29,6 +23,12 @@
       <driver-properties>
         <property name="enable_load_extension" value="true" />
       </driver-properties>
+    </data-source>
+    <data-source source="LOCAL" name="postgres@localhost [2]" uuid="10bebe31-c468-4d96-ab66-f486b84e4f7e">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/postgres</jdbc-url>
     </data-source>
   </component>
 </project>

@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="postgres@localhost [2]">
+  <database-model serializer="dbm" rdbms="POSTGRES" format-version="4.7">
+    <root id="1"/>
+    <database id="2" parent="1" name="postgres">
+      <ObjectId>12415</ObjectId>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </database>
+    <database id="3" parent="1" name="test">
+      <ObjectId>16384</ObjectId>
+    </database>
+    <database id="4" parent="1" name="dba">
+      <ObjectId>16399</ObjectId>
+    </database>
+    <role id="5" parent="1" name="postgres">
+      <ObjectId>10</ObjectId>
+      <SuperRole>1</SuperRole>
+      <Inherit>1</Inherit>
+      <CreateRole>1</CreateRole>
+      <CreateDb>1</CreateDb>
+      <CanLogin>1</CanLogin>
+      <Replication>1</Replication>
+      <ConnectionLimit>-1</ConnectionLimit>
+      <BypassRls>1</BypassRls>
+    </role>
+    <schema id="6" parent="2" name="public">
+      <ObjectId>2200</ObjectId>
+      <IntrospectionTimestamp>2018-05-17.16:25:14.579</IntrospectionTimestamp>
+      <IntrospectionStateNumber>824</IntrospectionStateNumber>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="7" parent="2" name="pg_catalog">
+      <ObjectId>11</ObjectId>
+    </schema>
+    <schema id="8" parent="2" name="pg_toast">
+      <ObjectId>99</ObjectId>
+    </schema>
+    <schema id="9" parent="2" name="pg_temp_1">
+      <ObjectId>11816</ObjectId>
+    </schema>
+    <schema id="10" parent="2" name="pg_toast_temp_1">
+      <ObjectId>11817</ObjectId>
+    </schema>
+    <schema id="11" parent="2" name="information_schema">
+      <ObjectId>12123</ObjectId>
+    </schema>
+    <sequence id="12" parent="6" name="brands_id_seq">
+      <ObjectId>16620</ObjectId>
+      <StateNumber>812</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+      <CacheSize>1</CacheSize>
+    </sequence>
+    <sequence id="13" parent="6" name="categories_id_seq">
+      <ObjectId>16630</ObjectId>
+      <StateNumber>813</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+      <CacheSize>1</CacheSize>
+    </sequence>
+    <sequence id="14" parent="6" name="books_id_seq">
+      <ObjectId>16540</ObjectId>
+      <StateNumber>756</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+      <CacheSize>1</CacheSize>
+    </sequence>
+    <sequence id="15" parent="6" name="products_id_seq">
+      <ObjectId>16602</ObjectId>
+      <StateNumber>799</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+      <CacheSize>1</CacheSize>
+    </sequence>
+    <sequence id="16" parent="6" name="publisher_id_seq">
+      <ObjectId>16546</ObjectId>
+      <StateNumber>757</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+      <CacheSize>1</CacheSize>
+    </sequence>
+    <table id="17" parent="6" name="books">
+      <ObjectId>16542</ObjectId>
+      <StateNumber>756</StateNumber>
+    </table>
+    <table id="18" parent="6" name="brands">
+      <ObjectId>16622</ObjectId>
+      <StateNumber>824</StateNumber>
+    </table>
+    <table id="19" parent="6" name="categories">
+      <ObjectId>16632</ObjectId>
+      <StateNumber>823</StateNumber>
+    </table>
+    <table id="20" parent="6" name="products">
+      <ObjectId>16604</ObjectId>
+      <StateNumber>824</StateNumber>
+    </table>
+    <table id="21" parent="6" name="publisher">
+      <ObjectId>16548</ObjectId>
+      <StateNumber>757</StateNumber>
+    </table>
+    <column id="22" parent="17" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>756</StateNumber>
+      <DefaultExpression>nextval(&apos;books_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+      <SequenceName>books_id_seq</SequenceName>
+    </column>
+    <column id="23" parent="17" name="title">
+      <Position>2</Position>
+      <DataType>varchar(127)|0</DataType>
+      <StateNumber>756</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="24" parent="17" name="created_at">
+      <Position>3</Position>
+      <DataType>integer|0</DataType>
+      <StateNumber>756</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="25" parent="17" name="author">
+      <Position>4</Position>
+      <DataType>varchar(127)|0</DataType>
+      <StateNumber>756</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="26" parent="17" name="price">
+      <Position>5</Position>
+      <DataType>double precision|0</DataType>
+      <StateNumber>756</StateNumber>
+      <TypeId>701</TypeId>
+    </column>
+    <column id="27" parent="18" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>812</StateNumber>
+      <DefaultExpression>nextval(&apos;brands_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+      <SequenceName>brands_id_seq</SequenceName>
+    </column>
+    <column id="28" parent="18" name="name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>812</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="29" parent="18" name="brands_pkey">
+      <ObjectId>16626</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="30" parent="18" name="brands_name_key">
+      <ObjectId>16628</ObjectId>
+      <ColNames>name</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="31" parent="18" name="brands_pkey">
+      <ObjectId>16627</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>brands_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="32" parent="18" name="brands_name_key">
+      <ObjectId>16629</ObjectId>
+      <ColNames>name</ColNames>
+      <UnderlyingIndexName>brands_name_key</UnderlyingIndexName>
+    </key>
+    <column id="33" parent="19" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>813</StateNumber>
+      <DefaultExpression>nextval(&apos;categories_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+      <SequenceName>categories_id_seq</SequenceName>
+    </column>
+    <column id="34" parent="19" name="name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>813</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="35" parent="19" name="categories_pkey">
+      <ObjectId>16636</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="36" parent="19" name="categories_name_key">
+      <ObjectId>16638</ObjectId>
+      <ColNames>name</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="37" parent="19" name="categories_pkey">
+      <ObjectId>16637</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>categories_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="38" parent="19" name="categories_name_key">
+      <ObjectId>16639</ObjectId>
+      <ColNames>name</ColNames>
+      <UnderlyingIndexName>categories_name_key</UnderlyingIndexName>
+    </key>
+    <column id="39" parent="20" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>799</StateNumber>
+      <DefaultExpression>nextval(&apos;products_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+      <SequenceName>products_id_seq</SequenceName>
+    </column>
+    <column id="40" parent="20" name="title">
+      <Position>2</Position>
+      <DataType>varchar(127)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>799</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="41" parent="20" name="vendor">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>799</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="42" parent="20" name="img">
+      <Position>4</Position>
+      <DataType>varchar(1023)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>799</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="43" parent="20" name="price">
+      <Position>5</Position>
+      <DataType>numeric(10,2)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>799</StateNumber>
+      <TypeId>1700</TypeId>
+    </column>
+    <column id="44" parent="20" name="oldprice">
+      <Position>6</Position>
+      <DataType>numeric(10,2)|0</DataType>
+      <StateNumber>799</StateNumber>
+      <TypeId>1700</TypeId>
+    </column>
+    <column id="45" parent="20" name="bringing">
+      <Position>7</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>799</StateNumber>
+      <DefaultExpression>now()</DefaultExpression>
+      <TypeId>1114</TypeId>
+    </column>
+    <column id="46" parent="20" name="count">
+      <Position>8</Position>
+      <DataType>integer|0</DataType>
+      <StateNumber>799</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="47" parent="20" name="categor_id">
+      <Position>9</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>814</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="48" parent="20" name="brand_id">
+      <Position>10</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>815</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="49" parent="20" name="products_pkey">
+      <ObjectId>16612</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="50" parent="20" name="products_title_key">
+      <ObjectId>16614</ObjectId>
+      <ColNames>title</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="51" parent="20" name="products_vendor_key">
+      <ObjectId>16616</ObjectId>
+      <ColNames>vendor</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="52" parent="20" name="products_pkey">
+      <ObjectId>16613</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>products_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="53" parent="20" name="products_title_key">
+      <ObjectId>16615</ObjectId>
+      <ColNames>title</ColNames>
+      <UnderlyingIndexName>products_title_key</UnderlyingIndexName>
+    </key>
+    <key id="54" parent="20" name="products_vendor_key">
+      <ObjectId>16617</ObjectId>
+      <ColNames>vendor</ColNames>
+      <UnderlyingIndexName>products_vendor_key</UnderlyingIndexName>
+    </key>
+    <foreign-key id="55" parent="20" name="products_categor_id_fkey">
+      <ObjectId>16640</ObjectId>
+      <ColNames>categor_id</ColNames>
+      <RefTableId>16632</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>categories</RefTableName>
+      <RefKeyName>categories_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>restrict</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
+    </foreign-key>
+    <foreign-key id="56" parent="20" name="products_brand_id_fkey">
+      <ObjectId>16645</ObjectId>
+      <ColNames>brand_id</ColNames>
+      <RefTableId>16622</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>brands</RefTableName>
+      <RefKeyName>brands_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>restrict</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
+    </foreign-key>
+    <column id="57" parent="21" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>757</StateNumber>
+      <DefaultExpression>nextval(&apos;publisher_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+      <SequenceName>publisher_id_seq</SequenceName>
+    </column>
+    <column id="58" parent="21" name="name">
+      <Position>2</Position>
+      <DataType>varchar(127)|0</DataType>
+      <StateNumber>757</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="59" parent="21" name="director">
+      <Position>3</Position>
+      <DataType>varchar(127)|0</DataType>
+      <StateNumber>757</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+  </database-model>
+</dataSource>

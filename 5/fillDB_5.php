@@ -23,7 +23,6 @@ foreach ($results as $result) {
 // Моделируем таблицу заказов
 
 for ($i = 0; $i < 10; ++$i) {
-
     $timeAndDate = '2018-' . mt_rand(3, 5) . '-' . mt_rand(1, 30);
     $rand_id = array_rand($ids);
     $product_id = $ids[$rand_id];
