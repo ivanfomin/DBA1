@@ -16,6 +16,7 @@ $sth = $dbh->prepare($query);
 $sth->execute();
 $results = $sth->fetchAll(PDO::FETCH_ASSOC);
 $ids = [];
+
 foreach ($results as $result) {
     $ids[] = $result['id'];
 }

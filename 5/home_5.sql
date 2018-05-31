@@ -30,7 +30,6 @@ CREATE TABLE `testDB`.`orders` ( `id` SERIAL NOT NULL ,
  product_id BIGINT(10) UNSIGNED NOT NULL ,
  PRIMARY KEY (`id`));
 
-
 ALTER TABLE orders
 ADD FOREIGN KEY(product_id)
 REFERENCES products(id)
