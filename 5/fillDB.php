@@ -30,5 +30,6 @@ for ($i = 0; $i < 10; ++$i) {
 
     $sth = $dbh->prepare(' INSERT INTO ' . $table_2 . '
     VALUES (NULL,  :timeAndDate, :product_id)');
+
     $sth->execute([':timeAndDate' => $timeAndDate, ':product_id' => $product_id]);
 }

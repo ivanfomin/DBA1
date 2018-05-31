@@ -37,6 +37,7 @@ REFERENCES products(id)
 ON DELETE RESTRICT
 ON UPDATE CASCADE;
 
+
 #-------------------------------------------------------
 
 SELECT cast(orders.timeAndDate as date) AS DATE,
