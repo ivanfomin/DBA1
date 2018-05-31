@@ -71,6 +71,13 @@ FROM categories ORDER BY categories.name;
 #-----------------------------------------------
 #*
 
-SELECT DISTINCT c.name, b.name
-FROM categories c INNER JOIN brands b INNER JOIN products p
-ON c.id=p.categor_id AND b.id=p.brand_id;
+# SELECT DISTINCT c.name, b.name
+# FROM categories c INNER JOIN brands b INNER JOIN products p
+# ON c.id=p.categor_id AND b.id=p.brand_id;
+
+#Без GROUP BY не получается
+
+SELECT c.name , COUNT( p.id ), b.name  FROM brands b
+INNER JOIN products p ON p.brand_id=b.id
+INNER JOIN categories c ON c.id=p.categor_id
+GROUP BY c.name, b.name;
