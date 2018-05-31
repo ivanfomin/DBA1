@@ -27,7 +27,7 @@ GROUP BY c.name;
 
 CREATE TABLE `testDB`.`orders` ( `id` SERIAL NOT NULL ,
 `timeAndDate` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
- product_id BIGINT(10) UNSIGNED NOT NULL ,
+ product_id BIGINT UNSIGNED NOT NULL ,
  PRIMARY KEY (`id`));
 
 ALTER TABLE orders
@@ -39,6 +39,6 @@ ON UPDATE CASCADE;
 #-------------------------------------------------------
 
 SELECT cast(orders.timeAndDate as date) AS DATE,
-COUNT(*),SUM(products.price) AS SUM FROM `orders`,products
-WHERE orders.product_id = products.id GROUP BY DATE;
+COUNT(*),SUM(products.price) AS SUM FROM `orders` INNER JOIN `products`
+ON orders.product_id = products.id GROUP BY DATE;
 
