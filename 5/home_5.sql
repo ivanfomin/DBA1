@@ -42,3 +42,9 @@ SELECT cast(orders.timeAndDate as date) AS DATE,
 COUNT(*),SUM(products.price) AS SUM FROM `orders` INNER JOIN `products`
 ON orders.product_id = products.id GROUP BY DATE;
 
+#----------------------------------------------------------
+
+SELECT cast(orders.timeAndDate as date) AS DATE,
+  IF(p.price<4000 , IF(p.price>3000,'Middle','Cheap'), 'Expensive') AS PriceGroup,
+COUNT(*),SUM(p.price) AS SUM FROM `orders` INNER JOIN `products` p
+ON orders.product_id = p.id GROUP BY DATE, PriceGroup;
