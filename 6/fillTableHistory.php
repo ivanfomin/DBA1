@@ -10,7 +10,7 @@ $dbh = new PDO($dsn, $user, $pass);
 
 $table_1 = 'products';
 $table_2 = 'history';
-
+#каждому товару из таблицы products своя строка в таблице history
 $query = 'SELECT * FROM ' . $table_1;
 $sth = $dbh->prepare($query);
 $sth->execute();
