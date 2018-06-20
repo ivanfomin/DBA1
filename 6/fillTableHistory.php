@@ -15,14 +15,13 @@ $query = 'SELECT * FROM ' . $table_1;
 $sth = $dbh->prepare($query);
 $sth->execute();
 $results = $sth->fetchAll(PDO::FETCH_ASSOC);
-$events = ['create', 'changePrice', 'del'];
+$events = ['create', 'price', 'delete'];
 
 foreach ($results as $result) {
     $product_id = $result['id'];
     $event = array_rand($events) + 1;
     $currentPrice = $result['price'];
-    $random = mt_rand(0, 1);
-    if($random === 1) {
+    if($event != 1) {
         $oldPrice = $result['oldPrice'];
     } else {
         $oldPrice = NULL;
