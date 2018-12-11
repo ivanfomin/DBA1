@@ -73,7 +73,7 @@ BEGIN
   DECLARE current_price DECIMAL;
   SELECT oldPrice INTO old_price FROM history WHERE num=history.id;
   SELECT currentPrice INTO current_price FROM history WHERE num=history.id;
-  SET disc = (current_price - old_price) / old_price * 100;
+  SET disc = 100 - (current_price*100/old_price);
   RETURN CONCAT(disc, '%');
 END;
 $$
