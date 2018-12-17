@@ -8,8 +8,8 @@ CREATE TRIGGER `createProduct`
   FOR EACH ROW
 BEGIN
   INSERT INTO history
-  (history.id, history.event, history.oldPrice, history.currentPrice, history.timeAndDate)
-  VALUES (NULL, NEW.id, 'create', NEW.oldPrice, NEW.price, NOW());
+  (history.id, history.event, history.currentPrice, history.timeAndDate)
+  VALUES ( NEW.id, 'create', NEW.price, NOW());
 END;
 $$
 DELIMITER ;
@@ -24,7 +24,7 @@ BEGIN
   UPDATE history
   SET history.oldPrice     = OLD.price,
       history.currentPrice = NEW.price,
-      history.event        = 2,
+      history.event        = 'price',
       history.timeAndDate  = NOW()
   WHERE history.id = NEW.id;
 END;
@@ -44,6 +44,13 @@ $$
 DELIMITER ;
 
 #----------------------------------------------------------------------------------
+# При удаление строки из таблицы products соответствующей строке в таблице history,
+# в поле event заполняется значением delete
+# Новая строка в таблице history создается только при создании нового товара
+# на событие create
+# строки из истории не удаляются, только обновляются при изменении цены и удалении
+# products.id = history.id
+
 DELIMITER $$
 CREATE TRIGGER `deleteProduct`
   AFTER DELETE
@@ -51,7 +58,7 @@ CREATE TRIGGER `deleteProduct`
   FOR EACH ROW
 BEGIN
   UPDATE history
-  SET history.event       = 3,
+  SET history.event       = 'delete',
       history.timeAndDate = NOW()
   WHERE history.id = OLD.id;
 END;
