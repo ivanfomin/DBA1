@@ -28,14 +28,20 @@ SELECT title FROM products WHERE products.properties ? 'color' AND NOT products.
 
 SELECT title, products.properties->'weight' FROM products WHERE (products.properties->>'weight')::int < 1000;
 
-SELECT title, products.properties->'color', products.properties->'size' FROM products WHERE products.properties->>'color' = 'red' AND products.properties->>'size' = 'large';
+SELECT title, products.properties->'color', products.properties->'size' FROM products WHERE products.properties->>'color' = 'red'
+AND products.properties->>'size' = 'large';
 
 # 3. Создайте материализированное представление, которое поля jsonb превратит в столбцы (color, size, weight)
 
-CREATE MATERIALIZED VIEW "ProductsProperties" AS SELECT p.properties->>'color' AS "COLOR", p.properties->>'weight' AS "WEIGHT", p.properties->>'size' AS "SIZE" FROM products p;
+CREATE MATERIALIZED VIEW "ProductsProperties" AS SELECT p.properties->>'color' AS "COLOR",
+p.properties->>'weight' AS "WEIGHT",
+p.properties->>'size' AS "SIZE"
+FROM products p;
 
 SELECT * FROM "ProductsProperties";
 
 # 4. Используя оконные функции напишите запрос, который вернет все товары и для каждого - его долю в процентах в общей стоимости товаров такого же цвета (разумеется, речь про цену * количество). 
 
-SELECT title, price, properties->>'color', round(price / SUM(p.price) OVER(PARTITION BY properties->>'color') * 100, 2) AS Percent FROM products p;
+SELECT title, price, properties->>'color',
+round(price / SUM(p.price) OVER(PARTITION BY properties->>'color') * 100, 2) AS Percent
+FROM products p;
