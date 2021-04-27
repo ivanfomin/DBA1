@@ -27,3 +27,7 @@ CREATE VIEW changed_products AS
 SELECT * FROM new_product;
 
 SELECT * FROM changed_products;
+
+
+
+//Альберт, уж простите если отвлек. Решил тут на досуге обновить знания )
